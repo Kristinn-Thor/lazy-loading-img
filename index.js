@@ -6,6 +6,7 @@ const lazyLoad = (target) => {
       console.info('😍');
 
       if (entry.isIntersecting) {
+        console.info('👀');
         const img = entry.target;
         const src = img.getAttribute('data-lazy');
 

@@ -4,15 +4,28 @@ main {
 
 img {
     width: 100%;
-    min-height: 400px;
+    height: 100vh;;
 
     transform: translateX(50%);
     opacity: 0;
     transition: all .6s;
 }
 
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+}
+
 .fade-in {
     transform: translateX(0);
     opacity: 1;
     transition: all .6s;
+    height: 100%;
 }
