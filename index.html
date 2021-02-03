@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='is'>
+<head>
+   <meta charset='UTF-8'>
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+   <title>Lazy loading...</title>
+   <link rel='stylesheet' href='index.css'>
+   <!-- defer -> hleður js skránni strax án þess að blokka vafran í að birta html, 
+        keyrir síðan skránna þegar búið er að birta allt html. --> 
+   <script defer src="index.js"></script> 
+</head>
+<body>
+   <header></header>
+   <main>
+      <h1>An awesome title</h1>
+      <section>
+         <h3>I am an interesting title</h3>
+         <img data-lazy="img/annie-spratt.jpg">
+         <p>
+            Ex et officia cupidatat nisi esse proident. 
+            Exercitation ad id sint cupidatat amet sint. 
+            Anim in est sint nisi eiusmod est ex fugiat est ea. 
+            Laboris do aute cillum laborum laborum ad ea cillum. 
+            Sint excepteur cillum nostrud qui dolore.
+         </p>
+         <img data-lazy="img/daniil-silantev.jpg">
+         <p>
+            Culpa sunt amet amet aliqua elit. Cillum in ut duis ex ad reprehenderit ea 
+            laborum mollit adipisicing et do dolor. Elit enim excepteur cupidatat pariatur aliquip velit. 
+            Do elit nisi sint occaecat voluptate ullamco commodo eiusmod consectetur culpa nostrud 
+            ullamco proident.
+         </p>
+      </section>
+
+      <img data-lazy="img/niko-photos.jpg">
+      <img data-lazy="img/qingbao-meng.jpg">
+      <img data-lazy="img/sorasak.jpg">
+      <img data-lazy="img/studio-dekorasyon.jpg">
+   
+   </main>
+   <footer></footer>
+</body>
+</html>
