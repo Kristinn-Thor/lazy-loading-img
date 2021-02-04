@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "eslint index.js"
+    "test": "eslint index.js",
+    "dev": "sass --watch index.sass:index.css"
   },
   "keywords": [],
   "author": "Kristinn Thor Kristinsson <kristinn713@gmail.com>",
@@ -12,7 +13,8 @@
   "devDependencies": {
     "eslint": "^7.19.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "sass": "^1.32.6"
   },
   "dependencies": {}
 }
