@@ -8,10 +8,49 @@ html {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   overflow-x: hidden;
+  background-color: #181a1a;
 }
 
-main {
-  overflow-x: hidden;
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 10vh;
+  z-index: 1;
+}
+
+nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  border-bottom: solid 1px #23b19e;
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 700px;
+}
+nav li {
+  list-style: none;
+  display: inline;
+  font-weight: bold;
+  height: 24px;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: #23b19e;
+  transition: all ease-in 0.3s;
+}
+a:hover {
+  color: #a9e2da;
 }
 
 .landing {
@@ -24,59 +63,69 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 .landing h1 {
-  font-size: 2em;
+  font-size: 2rem;
   letter-spacing: -1px;
   color: #23b19e;
 }
+@media (min-width: 600px) {
+  .landing h1 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  .landing h1 {
+    font-size: 4rem;
+  }
+}
 
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 10vh;
+nav.--nature {
+  border-bottom: solid 1px #F7A86C;
   background-color: rgba(24, 26, 26, 0.5);
-  z-index: 1;
+}
+nav.--nature a {
+  color: #F7A86C;
 }
 
-nav {
-  position: relative;
+.nature {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./img/nasa-earth.jpg");
+  background-size: cover;
+}
+
+.architecture {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(64, 126, 230, 0.2), rgba(200, 200, 200, 0)), url("./img/glassbuilding.jpg");
+  background-size: cover;
+}
+
+nav.--architecture {
+  border-bottom: solid 1px #F16D60;
+  background-color: rgba(24, 26, 26, 0.5);
+}
+nav.--architecture a {
+  color: #F16D60;
+}
+
+.img-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-flow: column wrap;
+  align-content: center;
+  heigth: 100vh;
+  max-height: 200vh;
   width: 100%;
-  height: 100%;
-  border-bottom: solid 1px #23b19e;
+  margin: 10px;
 }
-
-nav ul {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  max-width: 700px;
-}
-
-nav li {
-  list-style: none;
-  display: inline;
-  font-weight: bold;
-}
-
-a {
-  text-decoration: none;
-  color: #23b19e;
-  transition: all ease-in 0.3s;
-}
-
-a:hover {
-  color: #a9e2da;
+.img-container > img {
+  padding: 10px;
+  width: 40%;
+  min-height: 400px;
 }
 
 img {
   width: 100%;
-  height: 100vh;
   transform: translateX(50%);
   opacity: 0;
   transition: all 0.6s;
