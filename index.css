@@ -27,14 +27,14 @@ nav {
   align-items: center;
   width: 100%;
   height: 100%;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-bottom: solid 1px #23b19e;
 }
 nav ul {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  max-width: 700px;
+  max-width: 200px;
 }
 nav li {
   list-style: none;
@@ -58,7 +58,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh + 10px);
   background-image: linear-gradient(rgba(24, 26, 26, 0.8), rgba(52, 54, 54, 0.1)), url("./img/annie-spratt.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -79,54 +79,32 @@ a:hover {
   }
 }
 
-nav.--nature {
-  border-bottom: solid 1px #F7A86C;
-  background-color: rgba(24, 26, 26, 0.5);
-}
-nav.--nature a {
-  color: #F7A86C;
-}
-
-.nature {
-  width: 100vw;
-  height: 100vh;
-  background-image: url("./img/nasa-earth.jpg");
-  background-size: cover;
-}
-
-.architecture {
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(rgba(64, 126, 230, 0.2), rgba(200, 200, 200, 0)), url("./img/glassbuilding.jpg");
-  background-size: cover;
-}
-
-nav.--architecture {
-  border-bottom: solid 1px #F16D60;
-  background-color: rgba(24, 26, 26, 0.5);
-}
-nav.--architecture a {
-  color: #F16D60;
-}
-
 .img-container {
   display: flex;
-  flex-flow: column wrap;
-  align-content: center;
-  heigth: 100vh;
-  max-height: 200vh;
-  width: 100%;
-  margin: 10px;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 100vw;
 }
 .img-container > img {
+  object-fit: cover;
+  width: 100vw;
+  height: 500px;
   padding: 10px;
-  width: 40%;
-  min-height: 400px;
+}
+@media (min-width: 900px) {
+  .img-container > img {
+    width: calc(100vw / 2);
+  }
+}
+@media (min-width: 1200px) {
+  .img-container > img {
+    width: calc(100vw / 3);
+  }
 }
 
 img {
   width: 100%;
-  transform: translateX(50%);
+  min-height: 300px;
   opacity: 0;
   transition: all 0.6s;
 }
@@ -134,8 +112,38 @@ img {
 .fade-in {
   transform: translateX(0);
   opacity: 1;
-  transition: all 0.6s;
+  transition: all ease-in 0.8s;
+}
+
+.slider-container {
+  height: 90vh;
+  margin-top: 10vh;
+  display: inline-flex;
+  transform: translateX(0px);
+  transition: transform 0.3s ease-out;
+  cursor: grab;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  max-height: 100vh;
+  width: 100vw;
+  padding: 1rem;
+  user-select: none;
+}
+
+.slide img {
+  width: auto;
   height: 100%;
+}
+
+.grabbing {
+  cursor: grabbing;
+}
+
+.grabbing .slide img {
+  transform: scale(0.9);
 }
 
 /*# sourceMappingURL=index.css.map */
