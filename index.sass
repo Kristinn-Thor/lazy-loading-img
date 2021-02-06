@@ -23,14 +23,13 @@
   margin: 0
   padding: 0
 
-html
+html, body
   font-family: 'Montserrat', sans-serif
+  width: 100%
+  height: 100%
   font-size: 16px
   overflow-x: hidden
   background-color: rgb(24, 26, 26)
-
-body
-  
 
 header
   position: absolute
@@ -107,14 +106,14 @@ img
   width: 100%
   min-height: 300px
   opacity: 0
-  transition: all .6s
 
 .fade-in
   transform: translateX(0)
   opacity: 1
-  transition: all ease-in .8s
+  transition: opacity ease-in .8s
 
 .slider-container
+  overflow: hidden
   height: 90vh
   margin-top: 10vh
   display: inline-flex
@@ -124,15 +123,19 @@ img
 
 .slide
   display: flex
+  overflow: hidden
   justify-content: center
+  align-items: center
   max-height: 100vh
   width: 100vw
   padding: 1rem
   user-select: none
 
 .slide img
-  width: auto
-  height: 100%
+  object-fit: cover
+  width: 100vw
+  height: 500px
+  padding: 10px
 
 .grabbing
   cursor: grabbing
