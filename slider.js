@@ -1,5 +1,8 @@
 const slider = document.querySelector('.slider-container');
 const slides = Array.from(document.querySelectorAll('.slide'));
+const leftArrow = document.querySelector('#left');
+leftArrow.classList.add('notVisible');
+const rightArrow = document.querySelector('#right');
 
 let isDragging = false;
 let startPos = 0;
@@ -15,6 +18,22 @@ window.oncontextmenu = (event) => {
   return false;
 };
 
+function endOfSlide() {
+  switch (currentIndex) {
+    case 0: leftArrow.classList.add('notVisible');
+      break;
+    case (slides.length - 1): rightArrow.classList.add('notVisible');
+      break;
+    default:
+      if (leftArrow.classList.contains('notVisible')) {
+        leftArrow.classList.remove('notVisible');
+      }
+      if (rightArrow.classList.contains('notVisible')) {
+        rightArrow.classList.remove('notVisible');
+      }
+  }
+}
+
 function setSliderPosition() {
   slider.style.transform = `translateX(${currentTranslate}px)`;
 }
@@ -26,13 +45,20 @@ const animation = () => {
   if (isDragging) requestAnimationFrame(animation);
 };
 
+const touchMove = (event) => {
+  if (isDragging) {
+    const currentPosition = getPositionX(event);
+    currentTranslate = prevTranslate + currentPosition - startPos;
+  }
+};
+
 const touchStart = (index) => (event) => {
   isDragging = true;
   currentIndex = index;
   startPos = getPositionX(event);
-  console.info(startPos);
   animationID = requestAnimationFrame(animation);
   slider.classList.add('grabbing');
+  slides[index].addEventListener('mousemove', touchMove);
 };
 
 function setPositionByIndex() {
@@ -41,7 +67,7 @@ function setPositionByIndex() {
   setSliderPosition();
 }
 
-const touchEnd = () => {
+const touchEnd = (index) => () => {
   isDragging = false;
   cancelAnimationFrame(animationID);
   const movedBy = currentTranslate - prevTranslate;
@@ -53,14 +79,8 @@ const touchEnd = () => {
   }
   setPositionByIndex();
   slider.classList.remove('grabbing');
-};
-
-const touchMove = (event) => {
-  console.info('move');
-  if (isDragging) {
-    const currentPosition = getPositionX(event);
-    currentTranslate = prevTranslate + currentPosition - startPos;
-  }
+  slides[index].removeEventListener('mousemove', touchMove);
+  endOfSlide();
 };
 
 slides.forEach((slide, index) => {
@@ -69,11 +89,26 @@ slides.forEach((slide, index) => {
 
   // Touch events
   slide.addEventListener('touchstart', touchStart(index));
-  slide.addEventListener('touchend', touchEnd);
+  slide.addEventListener('touchend', touchEnd(index));
   slide.addEventListener('touchmove', touchMove);
   // Mouse events
   slide.addEventListener('mousedown', touchStart(index));
-  slide.addEventListener('mouseup', touchEnd);
-  slide.addEventListener('mouseleave', touchEnd);
-  slide.addEventListener('mousemove', touchMove);
+  slide.addEventListener('mouseup', touchEnd(index));
+  slide.addEventListener('mouseleave', touchEnd(index));
+});
+
+leftArrow.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex -= 1;
+    setPositionByIndex();
+    endOfSlide();
+  }
+});
+
+rightArrow.addEventListener('click', () => {
+  if (currentIndex < slides.length - 1) {
+    currentIndex += 1;
+    setPositionByIndex();
+    endOfSlide();
+  }
 });

@@ -1,4 +1,4 @@
-const targets = document.querySelectorAll('img');
+const targets = document.querySelectorAll('.lazy-img');
 
 const lazyLoad = (target) => {
   const io = new IntersectionObserver((entries, observer) => {
