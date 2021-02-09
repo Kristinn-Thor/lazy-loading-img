@@ -104,6 +104,7 @@ a:hover {
   flex-flow: row wrap;
   align-items: center;
   width: 100vw;
+  min-height: 100vh;
 }
 .img-container > img {
   object-fit: cover;
