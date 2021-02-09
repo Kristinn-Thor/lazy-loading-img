@@ -66,8 +66,9 @@ a:hover {
 
 .landing {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100vw;
   height: calc(100vh + 10px);
   background-image: linear-gradient(rgba(24, 26, 26, 0.8), rgba(52, 54, 54, 0.1)), url("./img/annie-spratt.jpg");
@@ -75,6 +76,8 @@ a:hover {
   background-size: cover;
 }
 .landing h1 {
+  margin-top: 25vh;
+  margin-bottom: 2rem;
   font-size: 2rem;
   letter-spacing: -1px;
   color: #23b19e;
@@ -88,6 +91,14 @@ a:hover {
   .landing h1 {
     font-size: 4rem;
   }
+}
+.landing-section {
+  width: 60vw;
+  max-width: 700px;
+}
+.landing-section p {
+  letter-spacing: 3px;
+  color: #c5eee8;
 }
 
 .img-container {
