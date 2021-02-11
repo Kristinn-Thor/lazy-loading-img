@@ -163,7 +163,8 @@ a:hover {
 
 .slider-container {
   overflow: hidden;
-  height: 85vh;
+  height: 90vh;
+  height: calc(var(--vh, 1vh) * 90);
   margin-top: 10vh;
   display: inline-flex;
   transform: translateX(0px);
@@ -176,7 +177,7 @@ a:hover {
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  max-height: 90vh;
+  height: 100%;
   width: 100vw;
   padding: 1rem;
   user-select: none;
