@@ -128,12 +128,16 @@ a
   opacity: 1
   transition: opacity ease-in .8s
 
-.arrow
+.arrow-box
   position: absolute
   top: 50vh
+  top: calc(var(--vh, 1vh) * 50)
   z-index: 2
-  width: 30px
+  width: 5vw
+  min-width: 20px
+  max-width: 30px
   height: 10vh
+  min-height: 35px
   cursor: pointer
   user-select: none
   background-color: rgba(200, 200, 200, .4)
@@ -142,9 +146,15 @@ a
 
 .left-arrow
   left: 0
+  fill: rgb(228, 225, 225)
+  &:hover
+    fill: rgb(57, 82, 78)
 
 .right-arrow
   right: 0
+  fill: rgb(228, 225, 225)
+  &:hover
+    fill: rgb(57, 82, 78)
 
 .notVisible
   display: none
@@ -177,4 +187,4 @@ a
   cursor: grabbing
 
 .grabbing .slide img
-  transform: scale(0.9)
+  transform: scale(0.99)
